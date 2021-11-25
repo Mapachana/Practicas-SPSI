@@ -31,7 +31,7 @@ Generamos la llave pública a partir de la privada:
 
 `openssl pkey -in privkey-userS.pem -out pubkey-userS.pem -pubout`
 
-La clave pública tiene menos información que la privad:
+La clave pública tiene menos información que la privada:
 
 `openssl pkey -in pubkey-userS.pem -pubin -text`
 
@@ -101,3 +101,5 @@ Como pone `Verified OK`, ahora si puedo abrir el mensaje y leerlo.
 ## Pregunta
 
 ¿Cómo se ha llevado a cabo la firma? ¿De dónde sale `Verified OK`?
+
+Se comparan los hash porque solo él tiene su llave privada.
