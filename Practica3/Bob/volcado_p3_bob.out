@@ -1,0 +1,20 @@
+Script started on 2021-12-04 19:18:03+01:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ ls
+alice.cert.pem  bob.key.pem  gdh.pdf.b64.sgn.enc
+bob.cert.pem    file.tm      volcado_p3.out
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ openssl smime -decrypt -in gdh.pdf.b64.sgn.enc -out gdh.pdf.b64.sgn -recip bob.cert.pem -inkey bob.key.pem
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ openssl smime -pk7out -in gdh.pdf.b64.sgn | openssl pkcs7 -print_certs -noout
+subject=CN = eve@example.com
+
+issuer=C = GB, ST = England, O = Alice Ltd, CN = Alice
+
+
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ openssl smime -verify -text -in gdh.pdf.b64.sgn -noverify -out gdh.pdf.b64
+Verification successful
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ openssl base64 -d -in gdh.pdf.b64 -out gdh.pdf
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ evince gdh.pdf [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kf
+exit
+]0;paula@paulavn: ~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[01;32mpaula@paulavn[00m:[01;34m~/Dropbox/DGIIM/5_(21-22)/C1/SPSI/Practicas/P3/Bob[00m$ exit
+exit
+
+Script done on 2021-12-04 19:18:50+01:00 [COMMAND_EXIT_CODE="0"]
