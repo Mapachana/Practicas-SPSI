@@ -1,0 +1,10 @@
+Script started on 2021-12-04 19:25:37+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+]0;mapachana@mapachana-Aspire-E5-574G: ~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[01;32mmapachana@mapachana-Aspire-E5-574G[00m:[01;34m~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[00m$ ls
+bob.cert.pem  eve.cert.pem  eve.key.pem  file.tm  gdh.pdf  volcado_p3.out
+]0;mapachana@mapachana-Aspire-E5-574G: ~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[01;32mmapachana@mapachana-Aspire-E5-574G[00m:[01;34m~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[00m$ openssl base64 -in gdh.pdf -out gdh.pdf.b64
+]0;mapachana@mapachana-Aspire-E5-574G: ~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[01;32mmapachana@mapachana-Aspire-E5-574G[00m:[01;34m~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[00m$ openssl smime -sign -in gdh.pdf.b64 -out gdh.pdf.b64.sgn -signer eve.cert.pem -inkey eve.key.pem -text
+]0;mapachana@mapachana-Aspire-E5-574G: ~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[01;32mmapachana@mapachana-Aspire-E5-574G[00m:[01;34m~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[00m$ openssl smime -encrypt -in gdh.pdf.b64.sgn -out gdh.pdf.b64.sgn.enc bob.cert.pem
+]0;mapachana@mapachana-Aspire-E5-574G: ~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[01;32mmapachana@mapachana-Aspire-E5-574G[00m:[01;34m~/Escritorio/Universidad/5_QUINTO/1_Cuatri/SPSI/practicas/p3/eve[00m$ exit
+exit
+
+Script done on 2021-12-04 19:26:47+01:00 [COMMAND_EXIT_CODE="0"]
