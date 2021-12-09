@@ -10,9 +10,18 @@ Primero, se convierte el PDF a base64:
 
 Firma del pdf:
 
+-signer: indica quién es el firmante (certificado/llave publica, va incluida en el mensaje firmados)
+-inkey: indica la llave privada
+-text: lo hace en modo texto
+
 `openssl smime -sign -in gdh.pdf.b64 -out gdh.pdf.b64.sgn -signer eve.cert.pem -inkey eve.key.pem -text`
 
 Cifrado del PDF:
+
+El certificado que se usa es el de a quién va dirigido.
+
+Nota: Esto es equivalente a cifrar usando aes256, porque es la opcion por defecto. Se puede elegir el metodo de cifrado, el comando sería openssl smime -encrypt -aes256 -in gdh.pdf.b64.sgn -out gdh.pdf.b64.sgn.enc bob.cert.pem
+
 
 `openssl smime -encrypt -in gdh.pdf.b64.sgn -out gdh.pdf.b64.sgn.enc bob.cert.pem`
 
