@@ -10,9 +10,9 @@ Primero, se convierte el PDF a base64:
 
 Firma del pdf:
 
--signer: indica quién es el firmante (certificado/llave publica, va incluida en el mensaje firmados)
--inkey: indica la llave privada
--text: lo hace en modo texto
+- signer: indica quién es el firmante (certificado/llave publica, va incluida en el mensaje firmados)
+- inkey: indica la llave privada
+- text: lo hace en modo texto
 
 `openssl smime -sign -in gdh.pdf.b64 -out gdh.pdf.b64.sgn -signer eve.cert.pem -inkey eve.key.pem -text`
 
@@ -33,20 +33,24 @@ Bob tiene `bob.key.pem`, `bob.cert.pem`, `eve.cert.pem`.
 
 Bob recibe `gdh.pdf.b64.sgn.enc`.
 
-Descifrado del PDF:
+Descifrado del PDF (quitamos la capa de cifrado):
+
+- recip: va dirigido a Bob y por eso usa la llave pública
+- inkey: para hacer el descifrado usamos la clave privada de Bob
 
 `openssl smime -decrypt -in gdh.pdf.b64.sgn.enc -out gdh.pdf.b64.sgn -recip bob.cert.pem -inkey bob.key.pem`
 
 Comprobación de que el firmante es Eve:
 
--pk7out: indica un formato
--noout: Para que imprima los datos por pantalla
+- pk7out: indica un formato
+- noout: Para que imprima los datos por pantalla
 
 `openssl smime -pk7out -in gdh.pdf.b64.sgn | openssl pkcs7 -print_certs -noout`
 
-Verificación del mensaje:
+Verificación de la identidad:
 
-- El noverify es para que no vaya a la web donde estan las vigencias de los certificados
+- El noverify es para que no vaya a la web donde estan las vigencias de los certificados. De esta
+forma solo se basa en la información que hay en los documentos firmados
 
 
 `openssl smime -verify -text -in gdh.pdf.b64.sgn -noverify -out gdh.pdf.b64`
