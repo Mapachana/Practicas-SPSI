@@ -40,6 +40,7 @@ Descifrado del PDF:
 Comprobación de que el firmante es Eve:
 
 -pk7out: indica un formato
+-noout: Para que imprima los datos por pantalla
 
 `openssl smime -pk7out -in gdh.pdf.b64.sgn | openssl pkcs7 -print_certs -noout`
 
