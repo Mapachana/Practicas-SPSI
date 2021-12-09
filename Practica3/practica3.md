@@ -46,6 +46,8 @@ Comprobación de que el firmante es Eve:
 
 Verificación del mensaje:
 
+- El noverify es para que no vaya a la web donde estan las vigencias de los certificados
+
 
 `openssl smime -verify -text -in gdh.pdf.b64.sgn -noverify -out gdh.pdf.b64`
 
